@@ -1,0 +1,54 @@
+@import '../../../../scss/helpers/variables';
+@import '../../../../scss/helpers/mixins';
+
+.filter-panel {
+  padding: 20px;
+  padding-left: 0;
+  margin-right: 20px;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 0 1 25%;
+  min-width: 320px;
+  height: calc(100vh - 160px);
+  overflow: hidden auto;
+  &__item {
+    margin-bottom: 40px;
+    position: relative;
+    &__title {
+      margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    &:last-of-type {
+      margin-bottom: 100px;
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgba(47, 125, 132, 0.3);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $blue;
+    border-radius: 10px;
+  }
+}
+
+.filter {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  &__title {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 300;
+  }
+}

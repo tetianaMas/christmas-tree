@@ -1,0 +1,85 @@
+@import '../../../../../scss/helpers/variables';
+@import '../../../../../scss/helpers/mixins';
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  max-width: 300px;
+  width: 100%;
+  background: radial-gradient(109.56% 109.56% at 0% -2.94%, rgba(255, 255, 255, 0.5) 0%, rgba(179, 246, 255, 0.5) 100%);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  &__img {
+    flex: 0 1 50%;
+    max-width: 100%;
+    width: 75px;
+    object-fit: contain;
+  }
+
+  &__title {
+    max-width: 80%;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 400;
+    font-stretch: condensed;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    flex: 0 1 50%;
+    text-transform: capitalize;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background-color: $blue;
+  }
+}
+
+.card.active {
+  background: radial-gradient(109.56% 109.56% at 0% -2.94%, rgba(255, 255, 255, 0.5) 0%, rgb(6 65 110 / 53%) 100%);
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 35px;
+    @include svg('./assets/svg/star.svg');
+  }
+
+  &:hover {
+    background-color: $blue;
+  }
+}
+
+.card.hidden {
+  display: none;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

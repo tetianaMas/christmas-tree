@@ -1,0 +1,7 @@
+.logo {
+  @include svg('./assets/svg/logo.svg');
+  width: 55px;
+  height: 70px;
+  background-size: 100px;
+  background-position: center;
+}

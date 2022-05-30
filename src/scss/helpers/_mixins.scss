@@ -1,0 +1,23 @@
+@mixin svg($path) {
+  background-repeat: no-repeat;
+  background-image: url($path);
+  background-position: 100% 100%;
+  background-size: contain;
+  transition: 0.5s;
+  &:hover {
+    filter: $filter-blue;
+  }
+}
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgba(47, 125, 132, 0.3);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $blue;
+    border-radius: 10px;
+  }
+}

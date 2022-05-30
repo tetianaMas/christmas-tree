@@ -1,0 +1,69 @@
+@import '../../../scss/helpers/variables';
+@import '../../../scss/helpers/mixins';
+
+.main {
+  max-width: 100%;
+  height: calc(100vh - 160px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./assets/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.start-page {
+  &__wrapper {
+    max-width: 570px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    padding: 85px;
+    margin-bottom: 110px;
+    font-size: 36px;
+    line-height: 50px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    backdrop-filter: blur(31px);
+    border-radius: $border-radius;
+    border: 2px solid $blue;
+  }
+
+  &__btn {
+    width: 320px;
+    min-height: 54px;
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__ball {
+    position: absolute;
+    max-width: 655px;
+    width: 100%;
+    height: 808px;
+    background-repeat: no-repeat;
+    background-image: url('./assets/img/ball.png');
+    background-position: 100% 100%;
+    &--sm {
+      top: -245px;
+      left: calc(50% + 15px);
+      filter: grayscale(1);
+      transform: scale(-0.4, 0.4);
+    }
+
+    &--big {
+      left: calc(50% - 600px);
+      top: -125px;
+      transform: scale(0.7);
+    }
+  }
+}

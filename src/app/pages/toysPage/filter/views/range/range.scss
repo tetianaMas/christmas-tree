@@ -1,0 +1,29 @@
+@import '../../../../../../scss/helpers/variables';
+@import '../../../../../../scss/helpers/mixins';
+
+.range-container {
+  margin-bottom: 20px;
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.range-slider {
+  flex: 0 1 65%;
+  margin: 0 20px;
+}
+
+.range-value {
+  padding: 4px;
+  width: 70px;
+  text-align: center;
+  color: $white;
+  background-color: rgba(47, 125, 132, 0.3);
+  border: 1px solid $blue;
+  border-radius: $border-radius;
+}

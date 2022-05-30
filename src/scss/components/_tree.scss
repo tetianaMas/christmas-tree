@@ -1,0 +1,36 @@
+.tree-wrapper {
+  order: 2;
+  padding: 0 20px;
+  position: relative;
+  width: 60%;
+  height: 100%;
+  min-width: 580px;
+  background: center / cover no-repeat;
+}
+
+.tree {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 0;
+  max-width: 100%;
+  height: auto;
+  transform: translateX(-50%);
+  &__bg {
+    position: relative;
+    left: 50%;
+    width: 500px;
+    height: calc(100vh - 160px);
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 1225px) {
+  .tree-wrapper {
+    width: 100%;
+    margin: 20px;
+  }
+  .tree {
+    height: 100%;
+  }
+}

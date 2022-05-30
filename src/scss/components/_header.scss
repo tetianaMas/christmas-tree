@@ -1,0 +1,15 @@
+.header {
+  padding: 10px 0;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  .container {
+    width: 100%;
+  }
+  .container,
+  .navigetion-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
