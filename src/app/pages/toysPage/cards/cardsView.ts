@@ -24,7 +24,7 @@ export default class CardsView implements ICardsView {
     this.wrapperElem.className = 'cards__wrapper';
     this.infoElem = document.createElement('div');
     this.infoElem.className = 'cards__info';
-    this.noDataElem = NodeFactory.getNode('div', 'no-search-data hidden', 'Извините, совпадений не обнаружено.');
+    this.noDataElem = NodeFactory.getNode('div', 'no-search-data hidden', 'No data to show.');
     this.model = model;
     this.model.cardDataChanged.subscribe(this.render.bind(this));
     this.model.favDataChanged.subscribe(this.renderCardsInfo.bind(this));
@@ -69,7 +69,7 @@ export default class CardsView implements ICardsView {
 
   public renderCardsInfo(num = 0): void {
     this.infoElem.textContent = '';
-    this.infoElem.insertAdjacentHTML('afterbegin', infoCardsTemplate('игрушки', num));
+    this.infoElem.insertAdjacentHTML('afterbegin', infoCardsTemplate('decorations', num));
   }
 
   private renderNoSearchInfo(): void {

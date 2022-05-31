@@ -11,19 +11,19 @@ export default (settings: ISettingsData, treeBtns: string, bgBtns: string, light
 }"></button>
       </div>
       <div class="menu__item">
-        <h4 class="menu__item__title">выберите ёлку</h4>
+        <h4 class="menu__item__title">Choose a tree</h4>
         <div class="menu__item__wrapper">
           ${treeBtns}
         </div>
       </div>
       <div class="menu__item">
-        <h4 class="menu__item__title">выберите фон</h4>
+        <h4 class="menu__item__title">Choose a background</h4>
         <div class="menu__item__wrapper">
           ${bgBtns}
         </div>
       </div>
       <div class="menu__item">
-        <h4 class="menu__item__title">добавьте гирлянду</h4>
+        <h4 class="menu__item__title">Add lights</h4>
         <div class="menu__item__wrapper">
         
           ${lightsBtns}
@@ -33,7 +33,7 @@ export default (settings: ISettingsData, treeBtns: string, bgBtns: string, light
         </div>
       </div>
       <button class="btn-hide"></button>
-      <button class="btn btn--reset" data-reset="true">Сбросить настройки</button>
+      <button class="btn btn--reset" data-reset="true">Reset settings</button>
 
   `;
 };

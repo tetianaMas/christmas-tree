@@ -25,45 +25,45 @@
   }
 
   &__title {
-    padding: 85px;
+    padding: 11%;
+    margin: 20px;
     margin-bottom: 110px;
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 2.25rem;
+    line-height: 3.75rem;
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
     backdrop-filter: blur(31px);
     border-radius: $border-radius;
-    border: 2px solid $blue;
+    border: 2px solid $super-dark-blue;
   }
 
-  &__btn {
-    width: 320px;
+  &__subtitle {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: lowercase;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
     min-height: 54px;
+    background-color: $super-dark-blue;
+    color: $white;
+    border: 1px solid $super-dark-blue;
+
     &:hover {
       transform: translateY(-5px);
-    }
-  }
-
-  &__ball {
-    position: absolute;
-    max-width: 655px;
-    width: 100%;
-    height: 808px;
-    background-repeat: no-repeat;
-    background-image: url('./assets/img/ball.png');
-    background-position: 100% 100%;
-    &--sm {
-      top: -245px;
-      left: calc(50% + 15px);
-      filter: grayscale(1);
-      transform: scale(-0.4, 0.4);
+      color: $white;
+      border-color: $dark-blue;
     }
 
-    &--big {
-      left: calc(50% - 600px);
-      top: -125px;
-      transform: scale(0.7);
+    &:active {
+      background-color: $dark-blue;
+      border-color: $dark-blue;
     }
   }
 }

@@ -1,4 +1,5 @@
 @import '../helpers/variables';
+@import '../helpers/mixins';
 
 .menu--left,
 .menu--right {
@@ -16,7 +17,10 @@
 }
 
 .menu--left {
+  @include scrollbar;
+
   order: 1;
+  overflow-y: auto;
   padding: 20px 10px 20px 40px;
 }
 
@@ -92,6 +96,7 @@
 @media screen and (max-width: $desktop-medium) {
   .menu--left {
     @include scrollbar;
+
     position: absolute;
     bottom: -1px;
     flex: 0 1 100%;
@@ -119,25 +124,7 @@
       }
     }
     .btn-hide {
-      @include svg('./assets/svg/arrow.svg');
-      background-size: auto;
-      background-position: center;
       display: block;
-      position: fixed;
-      bottom: 200px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border-radius: 0 50% 50% 0;
-      background-color: $black-blue;
-      transform: rotate(270deg);
-      transition: 0.5s;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $black-blue;
-        filter: none;
-      }
     }
   }
   .menu--left.hide {
@@ -150,27 +137,13 @@
 
   .main--tree ~ .footer {
     .btn-show {
-      @include svg('./assets/svg/arrow.svg');
-      background-size: auto;
-      background-position: center;
       display: block;
-      position: fixed;
-      bottom: 56px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50% 0 0 50%;
-      background-color: $dark-green;
-      transform: rotate(90deg);
-      cursor: pointer;
-      &:hover {
-        filter: none;
-      }
     }
   }
 
   .menu--right {
     @include scrollbar;
+
     order: 3;
     position: fixed;
     top: 90px;

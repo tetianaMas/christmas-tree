@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 10px;
-  max-width: 300px;
   width: 100%;
   background: radial-gradient(109.56% 109.56% at 0% -2.94%, rgba(255, 255, 255, 0.5) 0%, rgba(179, 246, 255, 0.5) 100%);
   backdrop-filter: blur(4px);
@@ -18,11 +17,12 @@
 
   &__wrapper {
     display: flex;
+    justify-content: space-between;
     width: 100%;
   }
 
   &__img {
-    flex: 0 1 50%;
+    flex: 0 1 40%;
     max-width: 100%;
     width: 75px;
     object-fit: contain;
@@ -30,12 +30,14 @@
 
   &__title {
     max-width: 80%;
-    font-size: 18px;
-    line-height: 20px;
+    max-height: 40px;
+    font-size: 1.125rem;
+    line-height: 1.25rem;
     font-weight: 400;
     font-stretch: condensed;
     text-align: center;
     text-transform: uppercase;
+    overflow: hidden;
   }
 
   &__info {

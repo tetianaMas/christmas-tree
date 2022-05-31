@@ -1,17 +1,17 @@
 .btn {
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
   text-align: center;
   color: $white;
   text-transform: capitalize;
   backdrop-filter: blur(31px);
   border-radius: $border-radius;
-  border: 2px solid $blue;
+  border: 2px solid $dark-blue;
   cursor: pointer;
   transition: 0.5s;
 
   &:hover {
-    color: $blue;
+    color: $dark-blue;
   }
 
   &--reset {
@@ -25,9 +25,11 @@
 
   &--snow {
     @include svg('./assets/svg/snow.svg');
+
     width: 36px;
     height: 36px;
     border: none;
+
     &:hover {
       transform: scale(1.15);
       filter: none;
@@ -36,9 +38,11 @@
 
   &--music {
     @include svg('./assets/svg/audio.svg');
+
     width: 36px;
     height: 36px;
     border: none;
+
     &:hover {
       transform: scale(1.15);
       filter: none;
@@ -47,24 +51,36 @@
 
   &--tree {
     min-height: 60px;
+
+    &:hover {
+      transform: scale(1.15);
+      filter: none;
+    }
+
     &:nth-of-type(1) {
       @include svg('./assets/tree/1.webp');
     }
+
     &:nth-of-type(2) {
       @include svg('./assets/tree/2.webp');
     }
+
     &:nth-of-type(3) {
       @include svg('./assets/tree/3.webp');
     }
+
     &:nth-of-type(4) {
       @include svg('./assets/tree/4.webp');
     }
+
     &:nth-of-type(5) {
       @include svg('./assets/tree/5.webp');
     }
+
     &:nth-of-type(6) {
       @include svg('./assets/tree/6.webp');
     }
+
     &:nth-of-type(1),
     &:nth-of-type(2),
     &:nth-of-type(3),
@@ -73,11 +89,6 @@
     &:nth-of-type(6) {
       background-position: center;
       background-size: auto 50px;
-
-      &:hover {
-        transform: scale(1.15);
-        filter: none;
-      }
     }
   }
 

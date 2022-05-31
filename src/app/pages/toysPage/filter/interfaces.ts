@@ -54,7 +54,7 @@ export interface IFilterView {
   rootElement: HTMLElement;
   setEvent: (callback: (e: Event) => void) => void;
   toogleActiveClass: (elem: HTMLElement, className: string) => void;
-  renderSearchElement: (elemSearch: HTMLElement) => void;
+  renderSearchElement: (elemSearch: HTMLElement, parent: HTMLElement | null) => void;
 }
 
 export interface IFilterController {

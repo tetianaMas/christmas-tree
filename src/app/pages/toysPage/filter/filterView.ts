@@ -31,13 +31,28 @@ export default class FilterView implements IFilterView {
     this.rootElem.textContent = '';
 
     this.rootElem.insertAdjacentHTML('afterbegin', this.getFiltersTemplate() + this.getButtonsTemplate());
+    const btnHide = <HTMLElement>this.rootElem.querySelector('.btn-hide');
+    const btnShow = <HTMLElement>document.querySelector('.btn-show');
+
+    if (btnHide) {
+      btnHide.onclick = () => {
+        this.rootElem.classList.add('hide');
+      };
+    }
+
+    if (btnShow) {
+      btnShow.onclick = () => {
+        this.rootElem.classList.remove('hide');
+      };
+    }
   }
 
   private getButtonsTemplate(): string {
-    const btnFilters = button('btn btn--reset', 'data-reset="filters"', 'Сбросить фильтры');
-    const btnSettings = button('btn btn--reset', 'data-reset="settings"', 'Сбросить настройки');
+    const btnFilters = button('btn btn--reset', 'data-reset="filters"', 'Reset filters');
+    const btnSettings = button('btn btn--reset', 'data-reset="settings"', 'Reset settings');
+    const btnHidePanel = button('btn-hide', '', '');
 
-    return btnFilters + btnSettings;
+    return btnFilters + btnSettings + btnHidePanel;
   }
 
   private getFiltersTemplate(): string {
@@ -58,7 +73,10 @@ export default class FilterView implements IFilterView {
     elem.classList.toggle(className);
   }
 
-  public renderSearchElement(elemSearch: HTMLElement): void {
+  public renderSearchElement(elemSearch: HTMLElement | null): void {
+    if (!elemSearch) {
+      return;
+    }
     this.rootElem.insertAdjacentElement('afterbegin', elemSearch);
   }
 }

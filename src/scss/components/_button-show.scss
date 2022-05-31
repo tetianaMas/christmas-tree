@@ -1,0 +1,22 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+
+.btn-show {
+  @include svg('./assets/svg/arrow.svg');
+  background-size: auto;
+  background-position: center;
+  display: none;
+  position: fixed;
+  bottom: 56px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50% 0 0 50%;
+  background-color: $dark-green;
+  transform: rotate(90deg);
+  cursor: pointer;
+
+  &:hover {
+    filter: none;
+  }
+}

@@ -6,6 +6,11 @@
   height: calc(100vh - 160px);
   overflow: hidden auto;
 
+  @media screen and (max-width: $tablet-large) {
+    flex: 100%;
+    padding-top: 82px;
+  }
+
   &__info {
     margin-bottom: 10px;
     display: flex;
@@ -23,7 +28,7 @@
 
   &__wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
     grid-gap: 20px;
   }
 
@@ -69,7 +74,7 @@
 .no-search-data {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
   transform: translateY(-50%);
   z-index: 3;
   font-size: 24px;

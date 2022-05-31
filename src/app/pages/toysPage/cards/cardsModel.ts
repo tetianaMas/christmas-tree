@@ -1,4 +1,3 @@
-import LangProps from '../../../utils/langProps';
 import Observer from '../../../utils/Observer';
 import { ActiveFilters } from '../types';
 import { IToys } from '../interfaces';
@@ -136,7 +135,7 @@ export default class CardsModel implements ICardsModel {
       if (type === 'favorite') {
         elemFiltered = values.find(() => card.cardData[type]);
       } else {
-        elemFiltered = values.find((value: keyof IToys) => LangProps.getWordEquivalent(value) === card.cardData[type]);
+        elemFiltered = values.find((value: keyof IToys) => value === card.cardData[type]);
       }
       if (elemFiltered) {
         return elemFiltered;

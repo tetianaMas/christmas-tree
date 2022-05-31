@@ -6,12 +6,12 @@ export default function cardTemplate(data: IToys): string {
   <div class="card__wrapper">
     <img class="card__img" src="./assets/toys/${data.num}.png" alt="toy image">
     <div class="card__info">
-      <p class="card__info__item card__amount">количество: ${data.count}</p>
-      <p class="card__info__item card__year">год покупки: ${data.year}</p>
-      <p class="card__info__item card__form">форма: ${data.shape}</p>
-      <p class="card__info__item card__color">цвет: ${data.color}</p>
-      <p class="card__info__item card__size">размер: ${data.size}</p>
-      <p class="card__info__item card__is-favorite">любимый: ${data.favorite ? 'Да' : 'Нет'}</p>
+      <p class="card__info__item card__amount">Count: ${data.count}</p>
+      <p class="card__info__item card__year">Year: ${data.year}</p>
+      <p class="card__info__item card__form">Shape: ${data.shape}</p>
+      <p class="card__info__item card__color">Color: ${data.color}</p>
+      <p class="card__info__item card__size">Size: ${data.size}</p>
+      <p class="card__info__item card__is-favorite">Favorite: ${data.favorite ? 'Yes' : 'No'}</p>
     </div>
   </div>
   `;

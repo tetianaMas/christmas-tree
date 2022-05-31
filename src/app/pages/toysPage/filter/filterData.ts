@@ -2,11 +2,11 @@ import { IFilterData } from './interfaces';
 
 export const FILTER_DATA: Array<IFilterData> = [
   {
-    title: 'Фильтры по значению',
+    title: 'Filters by value',
     type: 'value',
     children: [
       {
-        title: 'Форма',
+        title: 'Shape',
         type: 'shape',
         data: [
           {
@@ -32,7 +32,7 @@ export const FILTER_DATA: Array<IFilterData> = [
         ],
       },
       {
-        title: 'Цвет',
+        title: 'Color',
         type: 'color',
         data: [
           {
@@ -58,7 +58,7 @@ export const FILTER_DATA: Array<IFilterData> = [
         ],
       },
       {
-        title: 'Размер',
+        title: 'Size',
         type: 'size',
         data: [
           {
@@ -76,7 +76,7 @@ export const FILTER_DATA: Array<IFilterData> = [
         ],
       },
       {
-        title: 'Только любимые',
+        title: 'Favorite',
         type: 'favorite',
         data: [
           {
@@ -88,42 +88,42 @@ export const FILTER_DATA: Array<IFilterData> = [
     ],
   },
   {
-    title: 'Фильтры по диапазону',
+    title: 'Filters by range',
     type: 'range',
     children: [
       {
-        title: 'Количество экземпляров',
+        title: 'Count',
         type: 'count',
         data: ['1', '12'],
       },
       {
-        title: 'Год приобретения',
+        title: 'Year',
         type: 'year',
         data: ['1940', '2020'],
       },
     ],
   },
   {
-    title: 'Сортировка',
+    title: 'Sort by',
     type: 'sort',
     children: [
       {
-        title: 'По названию от А до Я',
+        title: 'A to Z',
         type: 'name-to-max',
         isActive: true,
       },
       {
-        title: 'По названию от Я до А',
+        title: 'Z to A',
         type: 'name-to-min',
         isActive: false,
       },
       {
-        title: 'По возрастанию',
+        title: 'Ascending year',
         type: 'count-max',
         isActive: false,
       },
       {
-        title: 'По убыванию',
+        title: 'Descending year',
         type: 'count-min',
         isActive: false,
       },

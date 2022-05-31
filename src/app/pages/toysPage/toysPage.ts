@@ -51,6 +51,7 @@ export default class ToysPage implements IToysPage {
 
   private handleFilterClick(e: Event): void {
     const currElem = e.target as HTMLElement;
+    e.stopPropagation();
     if (currElem.dataset.filter) {
       this.filterController.toggleActiveClass(currElem);
       this.filterController.setActiveFilterData(currElem.dataset.filter);

@@ -15,6 +15,8 @@ export default class FilterController implements IFilterController {
 
   private search: Search;
 
+  private root: HTMLElement | null = null;
+
   constructor() {
     this.model = new FilterModel();
     this.view = new FilterView(this.model);
@@ -23,11 +25,20 @@ export default class FilterController implements IFilterController {
   }
 
   public createFilters(parent: HTMLElement, callback: (e: Event) => void): void {
+    if (this.root) {
+      this.root.textContent = '';
+    }
+    this.root = parent;
     this.model.getFiltersDataFromLs();
     this.view.setEvent(callback);
-    this.view.renderSearchElement(this.search.root);
+
+    this.view.renderSearchElement(this.search.getSearchNode());
     parent.append(this.view.rootElement);
-    this.search.draw();
+
+    const searchNode = this.search.getSearchNode();
+    if (searchNode) {
+      parent.append(searchNode);
+    }
   }
 
   public getActiveFilterData(): Array<ActiveFilters> {
@@ -60,16 +71,16 @@ export default class FilterController implements IFilterController {
     this.setSortData(currSortData);
     this.saveData();
     this.model.createFilters();
-    this.view.renderSearchElement(this.search.root);
-    this.search.clearValue();
+    this.view.renderSearchElement(this.search.getSearchNode());
+    this.search.clearValue(this.root);
   }
 
   public resetSettings(): void {
     this.model.removeDataFromLs();
     this.model.setDefaultFilters();
     this.model.createFilters();
-    this.view.renderSearchElement(this.search.root);
-    this.search.clearValue();
+    this.view.renderSearchElement(this.search.getSearchNode());
+    this.search.clearValue(this.root);
   }
 
   public saveData(): void {

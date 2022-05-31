@@ -1,6 +1,10 @@
 import NodeFactory from '../../utils/NodeFactory';
 import { IStartPage } from './interfaces';
 
+const START_BTN_TEXT = 'start';
+const TITLE = 'Christmas tree';
+const SUBTITLE = 'Choose decorations and bring to live your idea of the perfect christmas tree!';
+
 export default class StartPage implements IStartPage {
   private rootElem: HTMLElement;
 
@@ -16,7 +20,9 @@ export default class StartPage implements IStartPage {
     const btn = this.getStartBtn();
     btn.onclick = () => callback();
     const title = this.getTitle();
+    const subtitle = this.getSubtitle();
     const wrapper = this.getWrapper();
+    title.append(subtitle);
     wrapper.append(title, btn);
     this.rootElem.append(wrapper);
     parentElem.innerHTML = '';
@@ -28,10 +34,14 @@ export default class StartPage implements IStartPage {
   }
 
   private getTitle(): HTMLElement {
-    return NodeFactory.getNode('h1', 'start-page__title', 'помогите бабушке нарядить ёлку');
+    return NodeFactory.getNode('h1', 'start-page__title', TITLE);
+  }
+
+  private getSubtitle(): HTMLElement {
+    return NodeFactory.getNode('span', 'start-page__subtitle', SUBTITLE);
   }
 
   private getStartBtn(): HTMLElement {
-    return NodeFactory.getNode('button', 'btn start-page__btn', 'начать');
+    return NodeFactory.getNode('button', 'btn start-page__btn', START_BTN_TEXT);
   }
 }
