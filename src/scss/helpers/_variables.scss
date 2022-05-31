@@ -15,3 +15,10 @@ $gold: #cd9900;
 $filter-gold: invert(64%) sepia(53%) saturate(4494%) hue-rotate(18deg) brightness(100%) contrast(101%);
 $grey-bg: radial-gradient(118.88% 606.86% at 0% 0%, rgba(255, 255, 255, 0.2) 0%, rgba(157, 243, 255, 0.2) 100%);
 $black-blue: #081416;
+
+//breakpoints
+$mobile: 320px;
+$mobile-large: 550px;
+$tablet: 768px;
+$desktop: 1020px;
+$desktop-medium: 1225px;

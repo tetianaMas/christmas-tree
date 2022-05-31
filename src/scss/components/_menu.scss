@@ -1,3 +1,5 @@
+@import '../helpers/variables';
+
 .menu--left,
 .menu--right {
   padding: 20px 40px;
@@ -45,6 +47,7 @@
       cursor: pointer;
       transition: 0.5s;
       box-shadow: 0 0px 3px 1px rgba(0, 90, 104, 0.823);
+
       &:hover {
         background-color: $blue;
       }
@@ -86,7 +89,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1225px) {
+@media screen and (max-width: $desktop-medium) {
   .menu--left {
     @include scrollbar;
     position: absolute;

@@ -2,43 +2,32 @@ import LocalStorageManager from '../../../utils/localStorageManager';
 import Observer from '../../../utils/Observer';
 import { IToys } from '../../toysPage/interfaces';
 import { ISettingsData } from '../interfaces';
-import { ToyTreeData } from '../types';
+import { TTree } from '../tree.model';
 import { ITreeModel } from './interfaces';
 
 export default class TreeModel implements ITreeModel {
-  private localStorage: LocalStorageManager;
+  private readonly localStorage = new LocalStorageManager();
 
-  private settingsData: ISettingsData | null;
+  private settingsData: ISettingsData | null = null;
 
-  private toys: Set<ToyTreeData>;
+  private toys = new Set<TTree>();
 
-  public settingsUpdate: Observer<ISettingsData>;
+  public settingsUpdate = new Observer<ISettingsData>();
 
-  public treeUpdate: Observer<ToyTreeData[]>;
+  public treeUpdate = new Observer<TTree[]>();
 
-  public updateBg: Observer<number>;
+  public updateBg = new Observer<number>();
 
-  public updateTree: Observer<number>;
+  public setTreeData = new Observer<number>();
 
-  public updateLights: Observer<number>;
-
-  constructor() {
-    this.settingsData = null;
-    this.settingsUpdate = new Observer();
-    this.treeUpdate = new Observer();
-    this.updateBg = new Observer();
-    this.updateTree = new Observer();
-    this.updateLights = new Observer();
-    this.toys = new Set();
-    this.localStorage = new LocalStorageManager();
-  }
+  public updateLights = new Observer<number>();
 
   public getToysData(): void {
     this.toys = new Set();
-    const toys = <ToyTreeData[]>this.localStorage.getValue('toys-tree');
+    const toys = <TTree[]>this.localStorage.getValue('toys-tree');
 
     if (toys) {
-      toys.forEach((toy: ToyTreeData) => this.toys.add(toy));
+      toys.forEach((toy: TTree) => this.toys.add(toy));
     }
 
     this.treeUpdate.notify([...this.toys]);
@@ -49,7 +38,7 @@ export default class TreeModel implements ITreeModel {
     this.settingsUpdate.notify(this.settingsData);
   }
 
-  set toysData(toy: ToyTreeData) {
+  set toysData(toy: TTree) {
     this.toys.add(toy);
 
     this.localStorage.setValue('toys-tree', [...this.toys]);
@@ -59,9 +48,9 @@ export default class TreeModel implements ITreeModel {
     const toys = [...this.toys];
     let currToyToRemove;
     if (typeof dataCard === 'string') {
-      currToyToRemove = toys.find((toy: ToyTreeData) => toy.data.num === dataCard);
+      currToyToRemove = toys.find((toy: TTree) => toy.data.num === dataCard);
     } else {
-      currToyToRemove = toys.find((toy: ToyTreeData) => toy.data.num === dataCard.num);
+      currToyToRemove = toys.find((toy: TTree) => toy.data.num === dataCard.num);
     }
 
     if (currToyToRemove) {
@@ -81,7 +70,7 @@ export default class TreeModel implements ITreeModel {
   public setTree(tree: string): void {
     if (this.settingsData) {
       this.settingsData.tree = Number(tree);
-      this.updateTree.notify(this.settingsData.tree);
+      this.setTreeData.notify(this.settingsData.tree);
     }
   }
 

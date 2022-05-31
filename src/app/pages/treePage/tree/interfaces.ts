@@ -1,7 +1,7 @@
 import Observer from '../../../utils/Observer';
 import { IToys } from '../../toysPage/interfaces';
 import { ISettingsData } from '../interfaces';
-import { ToyTreeData } from '../types';
+import { TTree } from '../tree.model';
 
 export interface ITreeController {
   createPage: (
@@ -20,12 +20,12 @@ export interface ITreeController {
 
 export interface ITreeModel {
   settingsUpdate: Observer<ISettingsData>;
-  treeUpdate: Observer<ToyTreeData[]>;
+  treeUpdate: Observer<TTree[]>;
   updateBg: Observer<number>;
-  updateTree: Observer<number>;
+  setTreeData: Observer<number>;
   updateLights: Observer<number>;
   settings: ISettingsData;
-  toysData: ToyTreeData;
+  toysData: TTree;
   getToysData: () => void;
   removeToyData: (card: IToys | string) => void;
   setBg: (data: string) => void;

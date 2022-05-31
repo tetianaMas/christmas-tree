@@ -2,7 +2,7 @@ import LocalStorageManager from '../../../utils/localStorageManager';
 import Observer from '../../../utils/Observer';
 import Card from '../../toysPage/cards/card/card';
 import { ISettingsData } from '../interfaces';
-import { ToyTreeData } from '../types';
+import { TTree } from '../tree.model';
 import { IMenuModel } from './interfaces';
 import SETTINGS from './settingsDefault';
 
@@ -40,9 +40,9 @@ export default class MenuModel implements IMenuModel {
   public setFavCards(cards: Card[]): void {
     this.favCards = JSON.parse(JSON.stringify(cards));
 
-    const cardsOnTree = <ToyTreeData[]>this.localStorage.getValue('toys-tree');
+    const cardsOnTree = <TTree[]>this.localStorage.getValue('toys-tree');
     if (cardsOnTree) {
-      cardsOnTree.forEach((toy: ToyTreeData) => {
+      cardsOnTree.forEach((toy: TTree) => {
         const currCard = this.favCards.find((favCard: Card) => favCard.data.num === toy.data.num);
         if (currCard) {
           currCard.data.count = String(toy.data.count);

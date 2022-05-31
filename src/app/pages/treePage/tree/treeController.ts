@@ -1,6 +1,6 @@
 import { IToys } from '../../toysPage/interfaces';
 import { ISettingsData } from '../interfaces';
-import { ToyTreeData } from '../types';
+import { TTree } from '../tree.model';
 import { ITreeController } from './interfaces';
 import TreeModel from './treeModel';
 import TreeView from './treeView';
@@ -28,7 +28,7 @@ export default class TreeController implements ITreeController {
   }
 
   public setToyToTree(x: string, y: string, card: IToys): void {
-    const toyData: ToyTreeData = {
+    const toyData: TTree = {
       data: card,
       xAxis: x,
       yAxis: y,

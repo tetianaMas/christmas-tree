@@ -1,3 +1,5 @@
+@import '../helpers/variables';
+
 .tree-wrapper {
   order: 2;
   padding: 0 20px;
@@ -6,6 +8,15 @@
   height: 100%;
   min-width: 580px;
   background: center / cover no-repeat;
+
+  @media screen and (max-width: $desktop-medium) {
+    width: 100%;
+    margin: 20px;
+  }
+
+  @media screen and (max-width: $mobile-large) {
+    min-width: 100%;
+  }
 }
 
 .tree {
@@ -14,23 +25,33 @@
   bottom: 0;
   z-index: 0;
   max-width: 100%;
-  height: auto;
+  height: 100%;
   transform: translateX(-50%);
+
   &__bg {
     position: relative;
     left: 50%;
     width: 500px;
     height: calc(100vh - 160px);
     transform: translateX(-50%);
-  }
-}
 
-@media screen and (max-width: 1225px) {
-  .tree-wrapper {
-    width: 100%;
-    margin: 20px;
+    @media screen and (max-width: $mobile-large) {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 440px;
+      width: 300px;
+    }
+
+    @media screen and (max-height: 700px) {
+      width: calc(100% - 34%);
+    }
   }
-  .tree {
+
+  @media screen and (max-width: $desktop-medium) {
     height: 100%;
+  }
+
+  @media screen and (max-width: $mobile-large) {
+    height: 440px;
   }
 }

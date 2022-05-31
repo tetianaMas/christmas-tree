@@ -2,6 +2,28 @@ import { ISnowFlake, ISnowManager } from './interfaces';
 
 const SNOWFLAKES_AMOUNT = 100;
 
+enum SpeedXNumber {
+  min = -11,
+  max = 11,
+}
+
+enum SpeedYNumber {
+  min = 7,
+  max = 15,
+}
+
+enum Radius {
+  min = 0.5,
+  max = 4.2,
+}
+
+enum PositionCoef {
+  x = 1.5,
+  y = -50,
+}
+
+const CIRCLE_LENGTH = Math.PI * 2;
+
 export default class SnowManager implements ISnowManager {
   private canvas: HTMLCanvasElement | null;
 
@@ -70,9 +92,9 @@ export default class SnowManager implements ISnowManager {
           x: Math.random() * this.canvas.width,
           y: Math.random() * this.canvas.height,
           opacity: Math.random(),
-          speedX: this.random(-11, 11),
-          speedY: this.random(7, 15),
-          radius: this.random(0.5, 4.2),
+          speedX: this.random(SpeedXNumber.min, SpeedXNumber.max),
+          speedY: this.random(SpeedYNumber.min, SpeedYNumber.max),
+          radius: this.random(Radius.min, Radius.max),
         };
         this.snowFlakesData.push(snowFlakeData);
       }
@@ -100,7 +122,7 @@ export default class SnowManager implements ISnowManager {
           gradient.addColorStop(1, 'rgba(237, 247, 249,' + snowflake.opacity + ')');
 
           ctx.beginPath();
-          ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2, false);
+          ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, CIRCLE_LENGTH, false);
 
           ctx.fillStyle = gradient;
           ctx.fill();
@@ -114,8 +136,8 @@ export default class SnowManager implements ISnowManager {
       snowflake.y += snowflake.speedY;
 
       if (this.canvas && snowflake.y > this.canvas.height) {
-        snowflake.x = Math.random() * this.canvas.width * 1.5;
-        snowflake.y = -50;
+        snowflake.x = Math.random() * this.canvas.width * PositionCoef.x;
+        snowflake.y = PositionCoef.y;
       }
     });
   }

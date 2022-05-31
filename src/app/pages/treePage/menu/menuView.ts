@@ -8,7 +8,7 @@ import rightPanel from './templates/rightPanel';
 
 export enum ButtonAmount {
   treeBtns = 6,
-  bgBtns = 8,
+  bgBtns = 4,
   lightsBtns = 5,
 }
 

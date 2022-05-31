@@ -2,13 +2,18 @@ import { ISettingsData } from '../interfaces';
 import map from './templates/map';
 import TreeModel from './treeModel';
 import NodeFactory from '../../../utils/NodeFactory';
-import { ToyTreeData } from '../types';
+import { TTree } from '../tree.model';
 import { ITreeView } from './interfaces';
 import { ButtonAmount } from '../menu/menuView';
 
 const LIGHTS_SETTINGS = {
   minLightsAmount: 6,
-  maxLightsAmount: 30,
+  get maxLightsAmount() {
+    if (window.innerWidth > 550) {
+      return 30;
+    }
+    return 20;
+  },
   lightsDiff: 3,
   lightsHeightCoef: 2,
 };
@@ -21,32 +26,31 @@ const LIGHTS_COLORS = {
   5: 'blue',
 };
 
+const MAX_RANDOM_NUMBER = 1000;
+
 export default class TreeView implements ITreeView {
   private model: TreeModel;
 
-  private rootNode: HTMLElement | null;
-
   private lightsWrapper: HTMLElement;
 
-  private bgElement: HTMLElement | null;
+  private rootNode: HTMLElement | null = null;
 
-  private area: HTMLElement | null;
+  private bgElement: HTMLElement | null = null;
+
+  private area: HTMLElement | null = null;
 
   private wrapper: HTMLElement;
 
   private bgWrapper: HTMLElement;
 
   constructor(model: TreeModel) {
-    this.rootNode = null;
-    this.bgElement = null;
-    this.area = null;
+    this.model = model;
     this.wrapper = NodeFactory.getNode('div', 'tree-wrapper', '');
     this.bgWrapper = NodeFactory.getNode('div', 'tree__bg', '');
     this.lightsWrapper = NodeFactory.getNode('div', 'lights__wrapper', '');
-    this.model = model;
     this.model.settingsUpdate.subscribe(this.drawTree.bind(this));
     this.model.updateBg.subscribe(this.updateBg.bind(this));
-    this.model.updateTree.subscribe(this.updateTree.bind(this));
+    this.model.setTreeData.subscribe(this.setTreeData.bind(this));
     this.model.updateLights.subscribe(this.updateLights.bind(this));
     this.model.treeUpdate.subscribe(this.hangToys.bind(this));
   }
@@ -68,23 +72,34 @@ export default class TreeView implements ITreeView {
     this.bgWrapper.append(this.bgElement);
 
     this.wrapper.textContent = '';
-    this.wrapper.style.backgroundImage = `url(./assets/bg/${settings.bg}.webp)`;
+    this.wrapper.style.backgroundImage = `url(./assets/bg/${settings.bg}1.jpg)`;
     this.wrapper.append(this.bgWrapper);
     this.wrapper.insertAdjacentHTML('afterbegin', '<canvas class="canvas" id="canvas"></canvas>');
 
     this.rootNode?.append(this.wrapper);
+    let isMobile = window.matchMedia('(max-width: 550px)').matches ? true : false;
+
+    window.addEventListener('resize', () => {
+      if (isMobile) {
+        this.createLights(settings.lights);
+        isMobile = false;
+      } else {
+        this.createLights(settings.lights);
+        isMobile = true;
+      }
+    });
   }
 
-  private hangToys(toys: ToyTreeData[]): void {
+  private hangToys(toys: TTree[]): void {
     if (this.rootNode) {
       this.area = this.rootNode.querySelector('area');
       if (this.area) {
-        toys.forEach((toy: ToyTreeData) => this.createImage(toy));
+        toys.forEach((toy: TTree) => this.createImage(toy));
       }
     }
   }
 
-  private createImage(toy: ToyTreeData) {
+  private createImage(toy: TTree): void {
     if (this.area) {
       this.area.textContent = '';
     }
@@ -94,7 +109,7 @@ export default class TreeView implements ITreeView {
     img.setAttribute('alt', 'toy image');
     img.setAttribute('draggable', 'true');
     img.src = `./assets/toys/${toy.data.num}.png`;
-    img.id = `${toy.data.num}-${Math.floor(Math.random() * 1000)}`;
+    img.id = this.getId(toy.data.num);
     img.style.position = 'absolute';
     img.style.zIndex = '1';
     img.style.left = toy.xAxis;
@@ -108,6 +123,10 @@ export default class TreeView implements ITreeView {
       e.dataTransfer?.setData('cardImage', img.id);
       e.dataTransfer?.setData('parent', 'tree');
     };
+  }
+
+  private getId(toy: string): string {
+    return `${toy}-${Math.floor(Math.random() * MAX_RANDOM_NUMBER)}`;
   }
 
   public initDragEvent(
@@ -257,13 +276,13 @@ export default class TreeView implements ITreeView {
 
   private updateBg(src: number): void {
     const img = new Image();
-    img.src = `./assets/bg/${src}.webp`;
+    img.src = `./assets/bg/${src}1.jpg`;
     img.onload = () => {
       this.wrapper.style.backgroundImage = `url(${img.src})`;
     };
   }
 
-  private updateTree(src: number): void {
+  private setTreeData(src: number): void {
     const img = new Image();
     img.src = `./assets/tree/${src}.webp`;
     img.onload = () => {

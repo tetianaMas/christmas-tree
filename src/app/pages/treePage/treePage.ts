@@ -5,27 +5,27 @@ import MenuController from './menu/menuController';
 import SnowManager from './snow';
 import TreeController from './tree/treeController';
 
+enum VolumeState {
+  off = '0',
+  on = '1',
+}
+
+enum SnowState {
+  off = '0',
+  on = '1',
+}
 export default class TreePage implements ITreePage {
-  private controllerTree: TreeController;
+  private rootNode: HTMLElement | null = null;
 
-  private controllerMenu: MenuController;
+  private favData: Card[] | null = null;
 
-  private rootNode: HTMLElement | null;
+  private readonly controllerTree = new TreeController();
 
-  private favData: Card[] | null;
+  private readonly controllerMenu = new MenuController();
 
-  private snowManager: SnowManager;
+  private readonly snowManager = new SnowManager();
 
-  private audioManager: AudioManager;
-
-  constructor() {
-    this.rootNode = null;
-    this.favData = null;
-    this.controllerTree = new TreeController();
-    this.controllerMenu = new MenuController();
-    this.snowManager = new SnowManager();
-    this.audioManager = new AudioManager();
-  }
+  private readonly audioManager = new AudioManager();
 
   public createPage(node: HTMLElement, favData: Array<Card>): void {
     node.textContent = '';
@@ -47,7 +47,7 @@ export default class TreePage implements ITreePage {
       this.playMusic();
     }
     document.addEventListener('click', (e: Event) => {
-      if ((<HTMLElement>e.target).closest('.navigetion-wrapper')) {
+      if ((<HTMLElement>e.target).closest('.navigation-wrapper')) {
         this.stopMusic();
       }
     });
@@ -149,11 +149,11 @@ export default class TreePage implements ITreePage {
     if (currElem.classList.contains('active-btn')) {
       currElem.classList.remove('active-btn');
       this.snowManager.hideSnow();
-      currElem.dataset.snow = '0';
+      currElem.dataset.snow = SnowState.off;
     } else {
       currElem.classList.add('active-btn');
       this.showSnow();
-      currElem.dataset.snow = '1';
+      currElem.dataset.snow = SnowState.on;
     }
     const value = Number(currElem.dataset.snow);
     this.controllerMenu.setSnowValue(!!value);
@@ -163,11 +163,11 @@ export default class TreePage implements ITreePage {
     if (currElem.classList.contains('active-btn')) {
       currElem.classList.remove('active-btn');
       this.audioManager.pause();
-      currElem.dataset.volume = '0';
+      currElem.dataset.volume = VolumeState.off;
     } else {
       currElem.classList.add('active-btn');
       this.audioManager.play();
-      currElem.dataset.volume = '1';
+      currElem.dataset.volume = VolumeState.on;
     }
     const value = Number(currElem.dataset.volume);
     this.controllerMenu.setVolumeValue(!!value);

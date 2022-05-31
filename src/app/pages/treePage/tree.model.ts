@@ -1,6 +1,6 @@
 import { IToys } from '../toysPage/interfaces';
 
-export type ToyTreeData = {
+export type TTree = {
   data: IToys;
   xAxis: string;
   yAxis: string;
