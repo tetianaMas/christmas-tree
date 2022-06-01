@@ -3,6 +3,8 @@
 
 .filter {
   &--select {
+    @include backdrop-filter-blur(6px);
+
     position: relative;
     appearance: none;
     outline: 0;
@@ -12,7 +14,6 @@
     padding: 5px 25px;
     margin-bottom: 125px;
     background-color: rgba(31, 112, 127, 0.3);
-    backdrop-filter: blur(6px);
     border-radius: 20px;
     border: 1px solid $blue;
     font-size: 16px;
@@ -20,12 +21,14 @@
     color: $white;
     cursor: pointer;
   }
+
   &__option {
     font-size: 16px;
     line-height: 18px;
     background-color: $dark-green;
   }
 }
+
 .filter-select-arrow {
   content: '';
   display: block;

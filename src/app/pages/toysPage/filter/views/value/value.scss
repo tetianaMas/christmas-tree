@@ -118,12 +118,13 @@
     display: none;
   }
   &__label {
+    @include backdrop-filter-blur(31px);
+
     position: relative;
     width: 20px;
     height: 20px;
     margin: 0 10px;
     background: $grey-bg;
-    backdrop-filter: blur(31px);
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;

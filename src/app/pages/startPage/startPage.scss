@@ -25,6 +25,8 @@
   }
 
   &__title {
+    @include backdrop-filter-blur(31px);
+
     padding: 11%;
     margin: 20px;
     margin-bottom: 110px;
@@ -33,9 +35,8 @@
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
-    backdrop-filter: blur(31px);
     border-radius: $border-radius;
-    border: 2px solid $super-dark-blue;
+    border: 2px solid $dark-green;
   }
 
   &__subtitle {
@@ -51,19 +52,19 @@
     width: 100%;
     max-width: 300px;
     min-height: 54px;
-    background-color: $super-dark-blue;
+    background-color: $dark-green;
     color: $white;
-    border: 1px solid $super-dark-blue;
+    border: 1px solid $dark-green;
 
     &:hover {
       transform: translateY(-5px);
       color: $white;
-      border-color: $dark-blue;
+      border-color: $super-dark-blue;
     }
 
     &:active {
-      background-color: $dark-blue;
-      border-color: $dark-blue;
+      background-color: $super-dark-blue;
+      border-color: $super-dark-blue;
     }
   }
 }

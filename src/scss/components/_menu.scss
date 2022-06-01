@@ -45,8 +45,9 @@
     }
 
     &__btn {
+      @include backdrop-filter-blur(31px);
+
       background: $grey-bg;
-      backdrop-filter: blur(31px);
       border-radius: 5px;
       cursor: pointer;
       transition: 0.5s;

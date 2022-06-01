@@ -21,3 +21,13 @@
     border-radius: 10px;
   }
 }
+
+@mixin backdrop-filter-blur($value) {
+  backdrop-filter: blur($value);
+  -webkit-backdrop-filter: blur($value);
+}
+
+@mixin backdrop-filter-none() {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}

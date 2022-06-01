@@ -1,10 +1,11 @@
 .btn {
+  @include backdrop-filter-blur(31px);
+
   font-size: 1.5rem;
   line-height: 1.8125rem;
   text-align: center;
   color: $white;
   text-transform: capitalize;
-  backdrop-filter: blur(31px);
   border-radius: $border-radius;
   border: 2px solid $dark-blue;
   cursor: pointer;
@@ -218,11 +219,14 @@
 
 .btn.btn--snow.active-btn,
 .btn.btn--music.active-btn {
+  @include backdrop-filter-none();
+
   filter: $filter-blue;
-  backdrop-filter: none;
   background-color: transparent;
+
   &:hover {
+    @include backdrop-filter-none();
+
     filter: $filter-blue;
-    backdrop-filter: none;
   }
 }
