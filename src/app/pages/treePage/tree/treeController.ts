@@ -24,7 +24,18 @@ export default class TreeController implements ITreeController {
     this.view.root = node;
     this.model.settings = settings;
     this.model.getToysData();
-    this.view.initDragEvent(callback, callbackReturn);
+    this.view.initDragEvent(callback, callbackReturn, this.callbackUpdateToyData.bind(this));
+
+    window.addEventListener('resize', () => {
+      const isMobileOnResize = window.matchMedia('(max-width: 550px)').matches ? true : false;
+
+      this.view.resetArea(isMobileOnResize);
+      this.model.getToysData();
+    });
+  }
+
+  private callbackUpdateToyData(toyId: string, x: string, y: string): void {
+    this.model.updateData(toyId, x, y);
   }
 
   public setToyToTree(x: string, y: string, card: IToys): void {

@@ -109,7 +109,11 @@
     z-index: 6;
     background-color: $dark-green;
     width: 100%;
-    padding: 20px 40px;
+    padding: 20px;
     margin-bottom: 0;
+
+    .search {
+      width: 75%;
+    }
   }
 }

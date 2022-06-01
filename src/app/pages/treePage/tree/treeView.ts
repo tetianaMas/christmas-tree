@@ -1,5 +1,5 @@
 import { ISettingsData } from '../interfaces';
-import map from './templates/map';
+import map, { Coords } from './templates/map';
 import TreeModel from './treeModel';
 import NodeFactory from '../../../utils/NodeFactory';
 import { TTree } from '../tree.model';
@@ -43,6 +43,8 @@ export default class TreeView implements ITreeView {
 
   private bgWrapper: HTMLElement;
 
+  public resetArea!: (isMobile: boolean) => void;
+
   constructor(model: TreeModel) {
     this.model = model;
     this.wrapper = NodeFactory.getNode('div', 'tree-wrapper', '');
@@ -61,6 +63,11 @@ export default class TreeView implements ITreeView {
 
   private drawTree(settings: ISettingsData) {
     this.createLights(settings.lights);
+    const isMobile = window.matchMedia('(max-width: 550px)').matches ? true : false;
+
+    const mapElem = NodeFactory.getNode('map', 'map', '');
+    mapElem.setAttribute('name', 'image-map');
+
     this.bgElement = NodeFactory.getNode('img', 'tree', '');
     this.bgElement.setAttribute('src', `./assets/tree/${settings.tree}.webp`);
     this.bgElement.setAttribute('alt', 'tree');
@@ -68,7 +75,8 @@ export default class TreeView implements ITreeView {
 
     this.bgWrapper.textContent = '';
     this.bgWrapper.append(this.lightsWrapper);
-    this.bgWrapper.insertAdjacentHTML('beforeend', map());
+    mapElem.insertAdjacentHTML('beforeend', map(isMobile));
+    this.bgWrapper.append(mapElem);
     this.bgWrapper.append(this.bgElement);
 
     this.wrapper.textContent = '';
@@ -77,17 +85,17 @@ export default class TreeView implements ITreeView {
     this.wrapper.insertAdjacentHTML('afterbegin', '<canvas class="canvas" id="canvas"></canvas>');
 
     this.rootNode?.append(this.wrapper);
-    let isMobile = window.matchMedia('(max-width: 550px)').matches ? true : false;
 
-    window.addEventListener('resize', () => {
-      if (isMobile) {
-        this.createLights(settings.lights);
-        isMobile = false;
-      } else {
-        this.createLights(settings.lights);
-        isMobile = true;
+    this.resetArea = this.resetMapArea(settings, mapElem);
+  }
+
+  public resetMapArea(settings: ISettingsData, mapElem: Element | null) {
+    return (isMobile: boolean) => {
+      if (mapElem && mapElem.firstElementChild) {
+        mapElem.firstElementChild.setAttribute('coords', isMobile ? Coords.mobile : Coords.desktop);
       }
-    });
+      this.createLights(settings.lights);
+    };
   }
 
   private hangToys(toys: TTree[]): void {
@@ -131,11 +139,12 @@ export default class TreeView implements ITreeView {
 
   public initDragEvent(
     callback: (x: string, y: string, toyId: string) => void,
-    callbackReturn: (id: string) => void
+    callbackReturn: (id: string) => void,
+    callbackUpdateToyData: (toy: string, x: string, y: string) => void
   ): void {
     if (this.area && this.rootNode) {
-      this.area.ondrop = (e: DragEvent) => this.handleDragEvent(e, callback);
-      this.area.ondrag = (e: DragEvent) => this.handleDragEvent(e, callback);
+      this.area.ondrop = (e: DragEvent) => this.handleDragEvent(e, callback, callbackUpdateToyData);
+      this.area.ondrag = (e: DragEvent) => this.handleDragEvent(e, callback, callbackUpdateToyData);
 
       this.rootNode.ondragover = (e: DragEvent) => this.handleDragRemoveEvent(e, callbackReturn);
       this.rootNode.ondrop = (e: DragEvent) => this.handleDragRemoveEvent(e, callbackReturn);
@@ -159,7 +168,11 @@ export default class TreeView implements ITreeView {
     }
   }
 
-  private handleDragEvent(e: DragEvent, callback: (x: string, y: string, toyId: string) => void): void {
+  private handleDragEvent(
+    e: DragEvent,
+    callback: (x: string, y: string, toyId: string) => void,
+    callbackUpdateToyData: (toy: string, x: string, y: string) => void
+  ): void {
     e.preventDefault();
 
     if (e.type === 'drop' && e.dataTransfer) {
@@ -167,9 +180,10 @@ export default class TreeView implements ITreeView {
       const toy = document.getElementById(toyId);
       const parent = e.dataTransfer.getData('parent');
 
+      console.log(toy, toy?.parentNode, e.target);
       if (toy && toy.parentNode && e.target) {
         if (parent === 'tree' && (<HTMLElement>e.target).tagName === 'AREA') {
-          this.moveToyOnTree(e, toy);
+          this.moveToyOnTree(e, toy, callbackUpdateToyData);
         } else if (parent === 'menu' && !(<HTMLElement>e.target).classList.contains('card-fav')) {
           this.addToyToTree(e, toy, toyId, callback);
         }
@@ -177,12 +191,17 @@ export default class TreeView implements ITreeView {
     }
   }
 
-  private moveToyOnTree(e: DragEvent, toy: HTMLElement) {
+  private moveToyOnTree(
+    e: DragEvent,
+    toy: HTMLElement,
+    callbackUpdateToyData: (toy: string, x: string, y: string) => void
+  ) {
     const [x, y] = this.getPoints(e.offsetX, e.offsetY);
 
     toy.style.left = x;
     toy.style.top = y;
     (<HTMLElement>e.target).append(toy);
+    callbackUpdateToyData(toy.id.split('-')[0], x, y);
   }
 
   private addToyToTree(

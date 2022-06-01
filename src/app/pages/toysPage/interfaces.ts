@@ -6,7 +6,6 @@ export interface IToys {
   shape: string;
   color: string;
   size: string;
-  favorite: boolean;
 }
 
 export interface IToysPage {

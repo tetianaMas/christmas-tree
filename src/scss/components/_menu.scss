@@ -117,6 +117,13 @@
           position: absolute;
           top: 20px;
           right: 70px;
+
+          @media screen and (max-width: $mobile-large) {
+            top: 50px;
+            right: 19px;
+            display: flex;
+            flex-direction: column;
+          }
         }
 
         &:nth-of-type(4) {

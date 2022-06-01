@@ -68,16 +68,27 @@
       background-color: $blue;
       border-radius: 50%;
     }
+
+    @media screen and (max-width: $mobile-large) {
+      z-index: 6;
+      top: 97px;
+      right: 20px;
+    }
   }
 }
 
 .no-search-data {
   position: absolute;
   top: 50%;
-  left: 60%;
-  transform: translateY(-50%);
+  left: 68%;
+  transform: translate(-50%);
   z-index: 3;
   font-size: 24px;
+  white-space: nowrap;
+
+  @media screen and (max-width: $desktop) {
+    left: 50%;
+  }
 }
 
 .no-search-data.hidden {

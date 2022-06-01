@@ -131,12 +131,8 @@ export default class CardsModel implements ICardsModel {
     const values = filter.name as Array<keyof IToys>;
 
     const filtered = cards.filter((card: Card) => {
-      let elemFiltered;
-      if (type === 'favorite') {
-        elemFiltered = values.find(() => card.cardData[type]);
-      } else {
-        elemFiltered = values.find((value: keyof IToys) => value === card.cardData[type]);
-      }
+      const elemFiltered = values.find((value: keyof IToys) => value === card.cardData[type]);
+
       if (elemFiltered) {
         return elemFiltered;
       }

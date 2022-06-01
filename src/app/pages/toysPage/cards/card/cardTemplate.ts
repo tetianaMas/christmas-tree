@@ -11,7 +11,6 @@ export default function cardTemplate(data: IToys): string {
       <p class="card__info__item card__form">Shape: ${data.shape}</p>
       <p class="card__info__item card__color">Color: ${data.color}</p>
       <p class="card__info__item card__size">Size: ${data.size}</p>
-      <p class="card__info__item card__is-favorite">Favorite: ${data.favorite ? 'Yes' : 'No'}</p>
     </div>
   </div>
   `;

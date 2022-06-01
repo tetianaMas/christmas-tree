@@ -85,4 +85,14 @@ export default class TreeModel implements ITreeModel {
     this.localStorage.removeData('toys-tree');
     this.toys = new Set();
   }
+
+  public updateData(id: string, x: string, y: string): void {
+    const currentToy = [...this.toys].find((toy) => toy.data.num === id);
+    if (currentToy) {
+      currentToy.xAxis = x;
+      currentToy.yAxis = y;
+      this.toys.add(currentToy);
+      this.localStorage.setValue('toys-tree', [...this.toys]);
+    }
+  }
 }

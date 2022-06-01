@@ -38,6 +38,7 @@ export interface ITreeView {
   root: HTMLElement;
   initDragEvent: (
     callback: (x: string, y: string, toyId: string) => void,
-    callbackReturn: (id: string) => void
+    callbackReturn: (id: string) => void,
+    callbackUpdateToyData: (toy: string, x: string, y: string) => void
   ) => void;
 }

@@ -75,16 +75,6 @@ export const FILTER_DATA: Array<IFilterData> = [
           },
         ],
       },
-      {
-        title: 'Favorite',
-        type: 'favorite',
-        data: [
-          {
-            name: 'favorite',
-            isActive: false,
-          },
-        ],
-      },
     ],
   },
   {

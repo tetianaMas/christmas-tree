@@ -33,7 +33,7 @@ export default class FilterValue implements IFilter {
 
   private getButtonsTemplate(btnData: IFilterValue): string {
     if (btnData.type === 'favorite') {
-      return this.getCheckboxTemplate(btnData);
+      return '';
     }
     let btnTemplate = '';
 
@@ -46,12 +46,5 @@ export default class FilterValue implements IFilter {
     });
 
     return btnTemplate;
-  }
-
-  private getCheckboxTemplate(checkboxData: IFilterValue): string {
-    return `<input class="filter__checkbox__input ${
-      checkboxData.data[0].isActive ? 'active' : ''
-    }" type="checkbox" id="checkbox" data-filter="favorite-favorite" ${checkboxData.data[0].isActive ? 'checked' : ''}>
-      <label class="filter__checkbox__label" for="checkbox"></label>`;
   }
 }

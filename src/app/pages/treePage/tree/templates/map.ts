@@ -1,7 +1,11 @@
-export default (): string => {
+export enum Coords {
+  mobile = '149,6,6,379,44,424,174,429,222,432,255,421,296,383',
+  desktop = '250,9,8,685,77,771,362,781,435,758,493,700',
+}
+
+export default (isMobile = false): string => {
+  console.log(isMobile ? Coords.mobile : Coords.desktop);
   return `
-    <map class="map" name="image-map">
-      <area alt="tree" coords="57,670,88,671,155,678,247,682,438,674,459,621,450,569,417,499,346,326,293,156,251,12,207,119,144,294,127,330,91,417,72,473,50,531,35,576,24,614,41,638" shape="poly">
-    </map>
+    <area alt="tree" coords="${isMobile ? Coords.mobile : Coords.desktop}" shape="poly"></area>
   `;
 };

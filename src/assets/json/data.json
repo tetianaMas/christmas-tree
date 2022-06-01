@@ -5,8 +5,8 @@
          "year": "1960",
          "shape": "ball",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "2",
@@ -15,8 +15,8 @@
          "year": "2000",
          "shape": "ball",
          "color": "green",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "3",
@@ -25,8 +25,8 @@
          "year": "1990",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "4",
@@ -35,8 +35,8 @@
          "year": "1980",
          "shape": "figure",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "5",
@@ -45,8 +45,7 @@
          "year": "1980",
          "shape": "figure",
          "color": "red",
-         "size": "medium",
-         "favorite": true
+         "size": "medium"
      },
      {
          "num": "6",
@@ -55,8 +54,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "7",
@@ -65,8 +64,7 @@
          "year": "1960",
          "shape": "ball",
          "color": "white",
-         "size": "medium",
-         "favorite": true
+         "size": "medium"
      },
      {
          "num": "8",
@@ -75,8 +73,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "9",
@@ -85,8 +83,8 @@
          "year": "1950",
          "shape": "bell",
          "color": "white",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "10",
@@ -95,8 +93,8 @@
          "year": "1960",
          "shape": "ball",
          "color": "white",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "11",
@@ -105,8 +103,8 @@
          "year": "1960",
          "shape": "cone",
          "color": "white",
-         "size": "small",
-         "favorite": false
+         "size": "small"
+
      },
      {
          "num": "12",
@@ -115,8 +113,8 @@
          "year": "1980",
          "shape": "ball",
          "color": "white",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "13",
@@ -125,8 +123,7 @@
          "year": "1970",
          "shape": "ball",
          "color": "blue",
-         "size": "big",
-         "favorite": true
+         "size": "big"
      },
      {
          "num": "14",
@@ -135,8 +132,7 @@
          "year": "1970",
          "shape": "ball",
          "color": "blue",
-         "size": "big",
-         "favorite": true
+         "size": "big"
      },
      {
          "num": "15",
@@ -145,8 +141,8 @@
          "year": "1970",
          "shape": "bell",
          "color": "blue",
-         "size": "medium",
-         "favorite": false
+         "size": "medium"
+
      },
      {
          "num": "16",
@@ -155,8 +151,7 @@
          "year": "1970",
          "shape": "cone",
          "color": "blue",
-         "size": "medium",
-         "favorite": true
+         "size": "medium"
      },
      {
          "num": "17",
@@ -165,8 +160,8 @@
          "year": "1970",
          "shape": "cone",
          "color": "red",
-         "size": "medium",
-         "favorite": false
+         "size": "medium"
+
      },
      {
          "num": "18",
@@ -175,8 +170,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "19",
@@ -185,8 +180,8 @@
          "year": "1980",
          "shape": "ball",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "20",
@@ -195,8 +190,7 @@
          "year": "1950",
          "shape": "ball",
          "color": "red",
-         "size": "medium",
-         "favorite": true
+         "size": "medium"
      },
      {
          "num": "21",
@@ -205,8 +199,7 @@
          "year": "1970",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": true
+         "size": "big"
      },
      {
          "num": "22",
@@ -215,8 +208,8 @@
          "year": "1990",
          "shape": "cone",
          "color": "yellow",
-         "size": "small",
-         "favorite": false
+         "size": "small"
+
      },
      {
          "num": "23",
@@ -225,8 +218,8 @@
          "year": "1950",
          "shape": "bell",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "24",
@@ -235,8 +228,8 @@
          "year": "1940",
          "shape": "snowflake",
          "color": "white",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      },
      {
          "num": "25",
@@ -245,8 +238,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "26",
          "name": "Ruby Gold ball",
@@ -254,8 +247,8 @@
          "year": "1960",
          "shape": "ball",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "27",
          "name": "Red patterned ball",
@@ -263,8 +256,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "28",
          "name": "Burgundy patterned ball",
@@ -272,8 +265,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "29",
          "name": "Vintage ball with flowers",
@@ -281,8 +274,7 @@
          "year": "1950",
          "shape": "ball",
          "color": "yellow",
-         "size": "big",
-         "favorite": true
+         "size": "big"
      }, {
          "num": "30",
          "name": "Vintage patterned ball",
@@ -290,8 +282,7 @@
          "year": "1950",
          "shape": "ball",
          "color": "yellow",
-         "size": "big",
-         "favorite": true
+         "size": "big"
      }, {
          "num": "31",
          "name": "Red glitter ball",
@@ -299,8 +290,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "32",
          "name": "Blue ball Universe",
@@ -308,8 +299,8 @@
          "year": "1970",
          "shape": "ball",
          "color": "blue",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "33",
          "name": "Blue ball with snowflake",
@@ -317,8 +308,7 @@
          "year": "2010",
          "shape": "ball",
          "color": "blue",
-         "size": "medium",
-         "favorite": false
+         "size": "medium"
      }, {
          "num": "34",
          "name": "Green patterned ball",
@@ -326,8 +316,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "green",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "35",
          "name": "Fox figurine in a scarf",
@@ -335,8 +325,7 @@
          "year": "1950",
          "shape": "figure",
          "color": "yellow",
-         "size": "medium",
-         "favorite": true
+         "size": "medium"
      }, {
          "num": "36",
          "name": "Lilac Snowball ball",
@@ -344,8 +333,8 @@
          "year": "2000",
          "shape": "ball",
          "color": "blue",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "37",
          "name": "Green ball Blizzard",
@@ -353,8 +342,8 @@
          "year": "2000",
          "shape": "ball",
          "color": "green",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "38",
          "name": "Blue Blizzard ball",
@@ -362,8 +351,8 @@
          "year": "2000",
          "shape": "ball",
          "color": "blue",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "39",
          "name": "Red snowflake",
@@ -371,8 +360,8 @@
          "year": "1990",
          "shape": "snowflake",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "40",
          "name": "Golden Snowflake",
@@ -380,8 +369,8 @@
          "year": "2020",
          "shape": "snowflake",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "41",
          "name": "Arctic snowflake",
@@ -389,8 +378,8 @@
          "year": "2020",
          "shape": "snowflake",
          "color": "white",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "42",
          "name": "Green ball",
@@ -398,8 +387,8 @@
          "year": "1980",
          "shape": "ball",
          "color": "green",
-         "size": "medium",
-         "favorite": false
+         "size": "medium"
+
      }, {
          "num": "43",
          "name": "Two-color snowflake",
@@ -407,8 +396,8 @@
          "year": "1960",
          "shape": "snowflake",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "44",
          "name": "Angel figurine",
@@ -416,8 +405,7 @@
          "year": "1940",
          "shape": "figure",
          "color": "red",
-         "size": "medium",
-         "favorite": true
+         "size": "medium"
      }, {
          "num": "45",
          "name": "Christmas snowflake",
@@ -425,8 +413,8 @@
          "year": "1980",
          "shape": "snowflake",
          "color": "white",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "46",
          "name": "Amanita figurine",
@@ -434,8 +422,8 @@
          "year": "1950",
          "shape": "figure",
          "color": "red",
-         "size": "small",
-         "favorite": false
+         "size": "small"
+
      },
      {
          "num": "47",
@@ -444,8 +432,8 @@
          "year": "1950",
          "shape": "figure",
          "color": "red",
-         "size": "small",
-         "favorite": false
+         "size": "small"
+
      }, {
          "num": "48",
          "name": "Yellow ball with a bow",
@@ -453,8 +441,8 @@
          "year": "1960",
          "shape": "ball",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "49",
          "name": "Snowflake with turquoise",
@@ -462,8 +450,8 @@
          "year": "1980",
          "shape": "snowflake",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "50",
          "name": "big bell",
@@ -471,8 +459,8 @@
          "year": "2020",
          "shape": "bell",
          "color": "red",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "51",
          "name": "Frost Cone",
@@ -480,8 +468,8 @@
          "year": "1970",
          "shape": "cone",
          "color": "red",
-         "size": "small",
-         "favorite": false
+         "size": "small"
+
      }, {
          "num": "52",
          "name": "Red ball with an inscription",
@@ -489,8 +477,7 @@
          "year": "1990",
          "shape": "ball",
          "color": "red",
-         "size": "big",
-         "favorite": true
+         "size": "big"
      }, {
          "num": "53",
          "name": "Snowflake silver",
@@ -498,8 +485,8 @@
          "year": "2020",
          "shape": "snowflake",
          "color": "white",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "54",
          "name": "Green ball with pattern",
@@ -507,8 +494,8 @@
          "year": "2010",
          "shape": "ball",
          "color": "green",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "55",
          "name": "Gingerbread house",
@@ -516,8 +503,8 @@
          "year": "1940",
          "shape": "figure",
          "color": "yellow",
-         "size": "big",
-         "favorite": false
+         "size": "big"
+
      }, {
          "num": "56",
          "name": "Gingerbread house",
@@ -525,8 +512,8 @@
          "year": "1940",
          "shape": "figure",
          "color": "yellow",
-         "size": "small",
-         "favorite": false
+         "size": "small"
+
      }, {
          "num": "57",
          "name": "Gingerbread hut",
@@ -534,8 +521,8 @@
          "year": "1940",
          "shape": "figure",
          "color": "yellow",
-         "size": "medium",
-         "favorite": false
+         "size": "medium"
+
      }, {
          "num": "58",
          "name": "Polar bear figurine",
@@ -543,8 +530,8 @@
          "year": "1980",
          "shape": "figure",
          "color": "white",
-         "size": "medium",
-         "favorite": false
+         "size": "medium"
+
      }, {
          "num": "59",
          "name": "Yellow ball with an inscription",
@@ -552,8 +539,8 @@
          "year": "1990",
          "shape": "ball",
          "color": "yellow",
-         "size": "medium",
-         "favorite": false
+         "size": "medium"
+
      }, {
          "num": "60",
          "name": "Dove figurine",
@@ -561,7 +548,6 @@
          "year": "1940",
          "shape": "figure",
          "color": "white",
-         "size": "medium",
-         "favorite": true
+         "size": "medium"
      }
  ]
